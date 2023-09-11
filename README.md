@@ -118,3 +118,24 @@ Recopilé datos del período comprendido entre 1994 y 2020. Se puede acceder a e
 ***Promedio y desviación estándar del año***
 
 ![imagem_2023-09-11_164812179](https://github.com/EricPassosScience/PySpark_Streaming_Kafka_Recommendation_System/assets/97414922/7a57476c-8e26-4343-aeac-fd351d69a19a)
+
+## Nota: Aunque el comportamiento de las acciones ha sido bueno en los últimos años, en promedio la ganancia ha sido baja, aunque positiva. A largo plazo, el inversor no perdió dinero. Creemos una trama con el retorno diario:
+
+![imagem_2023-09-11_170844491](https://github.com/EricPassosScience/PySpark_Streaming_Kafka_Recommendation_System/assets/97414922/3babd123-bd01-486f-bc86-fe0e53b836fb)
+
+## Nota: Con sólo dos variaciones importantes, el rendimiento diario ha sido constante en el tiempo. Creemos un histograma con la distribución del retorno diario:
+
+![imagem_2023-09-11_171549944](https://github.com/EricPassosScience/PySpark_Streaming_Kafka_Recommendation_System/assets/97414922/ca586809-a8f1-4274-916b-29e9a1a20f78)
+
+## Los valores están muy cerca de la media. Pero confirmemos esto calculando la curtosis y la asimetría:
+
+![imagem_2023-09-11_171752304](https://github.com/EricPassosScience/PySpark_Streaming_Kafka_Recommendation_System/assets/97414922/a1bd5727-7327-4509-9d28-b80e1bad73d6)
+
+#### Nota: Kurtosis indica que los registros están muy cerca de la media. Pero la asimetría indica que los datos están muy distorsionados y lejos de una distribución normal. Apliquemos la prueba de normalidad a la serie.
+
+## Prueba de normalidad de Shapiro-Wilk:
+
+![imagem_2023-09-11_172256635](https://github.com/EricPassosScience/PySpark_Streaming_Kafka_Recommendation_System/assets/97414922/0f247bb3-72cd-4ecb-a2e1-43562dd260d6)
+
+
+
