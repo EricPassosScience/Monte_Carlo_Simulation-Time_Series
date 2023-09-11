@@ -98,27 +98,27 @@ Recopilé datos del período comprendido entre 1994 y 2020. Se puede acceder a e
 ******************************
 # Ver el precio de cierre diario de las acciones a tiempo
 ![imagem_2023-09-11_161240667](https://github.com/EricPassosScience/PySpark_Streaming_Kafka_Recommendation_System/assets/97414922/9149a2c7-b232-4124-8a22-a270b5615b2e)
-
+***********************
 ## Calculemos el retorno diario de la serie:
 - Calcular el porcentaje de cambio en el precio de cierre diario de la acción,
 - Es decir, cuánto varía el valor de cierre de un día para otro, el rendimiento diario de la acción.
 
 ![imagem_2023-09-11_162727190](https://github.com/EricPassosScience/PySpark_Streaming_Kafka_Recommendation_System/assets/97414922/989f0271-e8db-401e-a2ca-526f46c0ed78)
-
+*****************************
 ***Calculemos el rendimiento acumulado de la serie***
 
 ![imagem_2023-09-11_162930045](https://github.com/EricPassosScience/PySpark_Streaming_Kafka_Recommendation_System/assets/97414922/cfec57ca-b3c2-4efb-b672-991d4313ca63)
-
+********************************
 # Análisis y Estadística Descriptiva
 - Usemos estadísticas para calcular el rendimiento promedio y la varianza (desviación estándar)
 
 ![imagem_2023-09-11_163928957](https://github.com/EricPassosScience/PySpark_Streaming_Kafka_Recommendation_System/assets/97414922/980d68e2-6836-4355-8e3f-29de85c9655c)
-
+****************************************
 ## Nota: Consideremos el año con 252 días de actividad en la bolsa americana
 ***Promedio y desviación estándar del año***
 
 ![imagem_2023-09-11_164812179](https://github.com/EricPassosScience/PySpark_Streaming_Kafka_Recommendation_System/assets/97414922/7a57476c-8e26-4343-aeac-fd351d69a19a)
-
+*******************************************
 ## Nota: Aunque el comportamiento de las acciones ha sido bueno en los últimos años, en promedio la ganancia ha sido baja, aunque positiva. A largo plazo, el inversor no perdió dinero. Creemos una trama con el retorno diario:
 
 ![imagem_2023-09-11_170844491](https://github.com/EricPassosScience/PySpark_Streaming_Kafka_Recommendation_System/assets/97414922/3babd123-bd01-486f-bc86-fe0e53b836fb)
@@ -126,16 +126,68 @@ Recopilé datos del período comprendido entre 1994 y 2020. Se puede acceder a e
 ## Nota: Con sólo dos variaciones importantes, el rendimiento diario ha sido constante en el tiempo. Creemos un histograma con la distribución del retorno diario:
 
 ![imagem_2023-09-11_171549944](https://github.com/EricPassosScience/PySpark_Streaming_Kafka_Recommendation_System/assets/97414922/ca586809-a8f1-4274-916b-29e9a1a20f78)
-
+****************************************
 ## Los valores están muy cerca de la media. Pero confirmemos esto calculando la curtosis y la asimetría:
 
 ![imagem_2023-09-11_171752304](https://github.com/EricPassosScience/PySpark_Streaming_Kafka_Recommendation_System/assets/97414922/a1bd5727-7327-4509-9d28-b80e1bad73d6)
-
+******************************************
 #### Nota: Kurtosis indica que los registros están muy cerca de la media. Pero la asimetría indica que los datos están muy distorsionados y lejos de una distribución normal. Apliquemos la prueba de normalidad a la serie.
-
+***************************************
 ## Prueba de normalidad de Shapiro-Wilk:
 
 ![imagem_2023-09-11_172256635](https://github.com/EricPassosScience/PySpark_Streaming_Kafka_Recommendation_System/assets/97414922/0f247bb3-72cd-4ecb-a2e1-43562dd260d6)
+******************************************
+#### Nota: Como imaginábamos, la distribución no es normal. Apliquemos una transformación logarítmica a la serie y luego apliquemos la técnica de diferenciación para eliminar patrones de tendencia de la serie y dejar solo los datos reales que nos interesan. Con esto calculamos el retorno diarip:
 
-#### Nota: Como imaginábamos, la distribución no es normal. Apliquemos una transformación logarítmica a la serie y luego apliquemos la técnica de diferenciación para eliminar patrones de tendencia de la serie y dejar solo los datos reales que nos interesan. Con esto calculamos el retorno diario.
+![imagem_2023-09-11_194951602](https://github.com/EricPassosScience/PySpark_Streaming_Kafka_Recommendation_System/assets/97414922/45ceb2ac-2469-4cd6-83d2-d2e4ef1030f1)
 
+***********************************************
+***Creemos una trama con el regreso diario de la serie transformada:***
+
+![imagem_2023-09-11_195422876](https://github.com/EricPassosScience/PySpark_Streaming_Kafka_Recommendation_System/assets/97414922/de67323c-3f73-4e84-8961-38294c9c7c5f)
+
+![imagem_2023-09-11_195525205](https://github.com/EricPassosScience/PySpark_Streaming_Kafka_Recommendation_System/assets/97414922/7215c594-a03f-423f-94c1-c7593d13c42e)
+
+***Calculando de nuevo la curtosis y la asimetría:**
+
+![imagem_2023-09-11_195821943](https://github.com/EricPassosScience/PySpark_Streaming_Kafka_Recommendation_System/assets/97414922/af8c4052-78c3-461c-932c-d964b9623229)
+
+***Prueba de normalidad de Shapiro-Wilk:***
+
+![imagem_2023-09-11_200054556](https://github.com/EricPassosScience/PySpark_Streaming_Kafka_Recommendation_System/assets/97414922/a77704df-2fb5-4170-b369-85b201753bcb)
+
+## Nota: Los datos todavía no son normales, pero hemos reducido la distorsión de los datos. Podríamos aplicar otras transformaciones, pero para los propósitos de este estudio esto es suficiente. Seguimos con la serie transformada.
+
+# Valor histórico
+- Calculemos el valor histórico del precio de la acción
+
+![imagem_2023-09-11_201336548](https://github.com/EricPassosScience/PySpark_Streaming_Kafka_Recommendation_System/assets/97414922/44ea2bc9-d304-4afd-a0b5-27db39ffc651)
+
+***Var durante los próximos 5 días:***
+
+![imagem_2023-09-11_201446949](https://github.com/EricPassosScience/PySpark_Streaming_Kafka_Recommendation_System/assets/97414922/c197ecef-7bc8-488f-929c-fecab51ad040)
+
+# Valor Histórico Condicional
+
+![imagem_2023-09-11_201754563](https://github.com/EricPassosScience/PySpark_Streaming_Kafka_Recommendation_System/assets/97414922/96a358d8-04de-4e22-b4e8-7c24f3a9b004)
+
+# Monte Carlo Simulation
+
+![imagem_2023-09-11_203235726](https://github.com/EricPassosScience/PySpark_Streaming_Kafka_Recommendation_System/assets/97414922/6e4dd9a3-7c4a-4676-9c60-16bd24309b60)
+
+***Definición del índice de la serie simulada:***
+
+![imagem_2023-09-11_203444079](https://github.com/EricPassosScience/PySpark_Streaming_Kafka_Recommendation_System/assets/97414922/1ed5e480-985f-4790-8c26-b2fab448a110)
+
+# Resultado de la simulación de Montecarlo
+
+![imagem_2023-09-11_204025657](https://github.com/EricPassosScience/PySpark_Streaming_Kafka_Recommendation_System/assets/97414922/29fc284e-3390-4239-8b85-d53e71c783df)
+
+# Gráfico
+
+![imagem_2023-09-11_204132936](https://github.com/EricPassosScience/PySpark_Streaming_Kafka_Recommendation_System/assets/97414922/19ba32f1-5681-4a11-b28e-c0222c75b954)
+
+# Nota: 
+## - El pronóstico es positivo con los datos simulados y en el largo plazo las acciones de CDR tienden a apreciarse. Pero no espere un gran rendimiento de estas acciones.
+
+## Fin
