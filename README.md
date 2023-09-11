@@ -74,10 +74,10 @@ Recopilé datos del período comprendido entre 1994 y 2020. Se puede acceder a e
 
 ***Importaciones para formato de gráficos:***
 ![imagem_2023-09-11_153543723](https://github.com/EricPassosScience/PySpark_Streaming_Kafka_Recommendation_System/assets/97414922/d1033f7a-8b6a-4e4b-8ad4-93ad7a38ba19)
-
+********************
 ***Versiones de paquetes utilizados en este cuaderno jupyter:***
 ![imagem_2023-09-11_153918344](https://github.com/EricPassosScience/PySpark_Streaming_Kafka_Recommendation_System/assets/97414922/adb6f9c7-8694-4b20-9dfe-46c33df5de70)
-
+**************************
 ## Cargando los Datos
 - El valor de las acciones se ha ajustado para facilitar la creación de gráficos de forma didáctica
 - Ver registros
@@ -88,12 +88,13 @@ Recopilé datos del período comprendido entre 1994 y 2020. Se puede acceder a e
 ![imagem_2023-09-11_154347105](https://github.com/EricPassosScience/PySpark_Streaming_Kafka_Recommendation_System/assets/97414922/14476edf-413a-4f95-9758-1a948783fe18)
 
 ![imagem_2023-09-11_154738009](https://github.com/EricPassosScience/PySpark_Streaming_Kafka_Recommendation_System/assets/97414922/242a8dd8-7a28-49a2-a4d7-7e9cccf25af0)
-
+***************************
 ***Tipos de datos y Forma:***
 ![imagem_2023-09-11_155136721](https://github.com/EricPassosScience/PySpark_Streaming_Kafka_Recommendation_System/assets/97414922/2b85d4e3-5278-43cc-a92a-10eed0474bf6)
-
+****************************
 ***Resumen estadístico:***
 
 ![imagem_2023-09-11_155533279](https://github.com/EricPassosScience/PySpark_Streaming_Kafka_Recommendation_System/assets/97414922/d4f72f03-a955-428a-9ab9-7493fb091a20)
-
+******************************
 # Ver el precio de cierre diario de las acciones a tiempo
+
