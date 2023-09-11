@@ -97,4 +97,16 @@ Recopilé datos del período comprendido entre 1994 y 2020. Se puede acceder a e
 ![imagem_2023-09-11_155533279](https://github.com/EricPassosScience/PySpark_Streaming_Kafka_Recommendation_System/assets/97414922/d4f72f03-a955-428a-9ab9-7493fb091a20)
 ******************************
 # Ver el precio de cierre diario de las acciones a tiempo
+![imagem_2023-09-11_161240667](https://github.com/EricPassosScience/PySpark_Streaming_Kafka_Recommendation_System/assets/97414922/9149a2c7-b232-4124-8a22-a270b5615b2e)
 
+## Calculemos el retorno diario de la serie:
+- Calcular el porcentaje de cambio en el precio de cierre diario de la acción,
+- Es decir, cuánto varía el valor de cierre de un día para otro, el rendimiento diario de la acción.
+
+![imagem_2023-09-11_162727190](https://github.com/EricPassosScience/PySpark_Streaming_Kafka_Recommendation_System/assets/97414922/989f0271-e8db-401e-a2ca-526f46c0ed78)
+
+***Calculemos el rendimiento acumulado de la serie***
+
+![imagem_2023-09-11_162930045](https://github.com/EricPassosScience/PySpark_Streaming_Kafka_Recommendation_System/assets/97414922/cfec57ca-b3c2-4efb-b672-991d4313ca63)
+
+# 
