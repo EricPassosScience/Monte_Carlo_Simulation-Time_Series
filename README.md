@@ -137,5 +137,5 @@ Recopilé datos del período comprendido entre 1994 y 2020. Se puede acceder a e
 
 ![imagem_2023-09-11_172256635](https://github.com/EricPassosScience/PySpark_Streaming_Kafka_Recommendation_System/assets/97414922/0f247bb3-72cd-4ecb-a2e1-43562dd260d6)
 
-
+#### Nota: Como imaginábamos, la distribución no es normal. Apliquemos una transformación logarítmica a la serie y luego apliquemos la técnica de diferenciación para eliminar patrones de tendencia de la serie y dejar solo los datos reales que nos interesan. Con esto calculamos el retorno diario.
 
