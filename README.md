@@ -109,4 +109,12 @@ Recopilé datos del período comprendido entre 1994 y 2020. Se puede acceder a e
 
 ![imagem_2023-09-11_162930045](https://github.com/EricPassosScience/PySpark_Streaming_Kafka_Recommendation_System/assets/97414922/cfec57ca-b3c2-4efb-b672-991d4313ca63)
 
-# 
+# Análisis y Estadística Descriptiva
+- Usemos estadísticas para calcular el rendimiento promedio y la varianza (desviación estándar)
+
+![imagem_2023-09-11_163928957](https://github.com/EricPassosScience/PySpark_Streaming_Kafka_Recommendation_System/assets/97414922/980d68e2-6836-4355-8e3f-29de85c9655c)
+
+## Nota: Consideremos el año con 252 días de actividad en la bolsa americana
+***Promedio y desviación estándar del año***
+
+![imagem_2023-09-11_164812179](https://github.com/EricPassosScience/PySpark_Streaming_Kafka_Recommendation_System/assets/97414922/7a57476c-8e26-4343-aeac-fd351d69a19a)
